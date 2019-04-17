@@ -5,6 +5,8 @@ import com.github.springbootjackson.enums.TimeUnitEnum;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * <p>
  * 创建时间为 10:58 2019-04-09
@@ -21,7 +23,7 @@ public class TimeEnumDO {
 
     private String desc;
 
-    private TimeUnitEnum timeUnit;
+    private TimeUnit timeUnit;
 
     @Override
     public String toString() {

@@ -1,5 +1,6 @@
 package com.github.springbootjackson.pojo;
 
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 /**
@@ -18,5 +19,10 @@ public class AutoDetectDO {
     private String name;
 
     public String pass;
+
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 
 }
