@@ -2,6 +2,7 @@ package com.github.springbootjackson.pojo;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -35,6 +36,7 @@ public class JsonPropertyDO {
     /**
      * 为反序列化期间要接受的属性定义一个或多个替代名称
      */
+    @JsonIgnore
     @JsonAlias({"pass1", "pass2"})
     private String pass;
 

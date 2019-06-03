@@ -7,7 +7,12 @@ import lombok.Setter;
 
 import java.util.concurrent.TimeUnit;
 
+
+
 /**
+ *
+ * {"desc":"desc","integer":5,"timeUnit":"DAYS"}
+ *
  * <p>
  * 创建时间为 21:58 2019-04-22
  * 项目名称 spring-boot-jackson
@@ -22,6 +27,8 @@ import java.util.concurrent.TimeUnit;
 public class TimeEnumDO {
 
     private String desc;
+
+    private Integer integer;
 
     private TimeUnit timeUnit;
 

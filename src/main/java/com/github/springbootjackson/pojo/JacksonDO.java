@@ -36,7 +36,7 @@ import java.util.Date;
  * @version 0.0.1
  * @since 0.0.1
  */
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(alphabetic = true, value = {"date", "age"})
 public class JacksonDO {
 
