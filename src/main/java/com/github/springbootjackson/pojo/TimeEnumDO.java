@@ -2,7 +2,10 @@ package com.github.springbootjackson.pojo;
 
 import com.alibaba.fastjson.JSON;
 import com.github.springbootjackson.enums.TimeUnitEnum;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.concurrent.TimeUnit;
@@ -24,6 +27,9 @@ import java.util.concurrent.TimeUnit;
  */
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TimeEnumDO {
 
     private String desc;
