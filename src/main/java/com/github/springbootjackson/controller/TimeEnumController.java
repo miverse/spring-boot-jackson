@@ -1,6 +1,6 @@
 package com.github.springbootjackson.controller;
 
-import com.github.springbootjackson.pojo.TimeEnumDO;
+import com.github.springbootjackson.pojo.TimeEnumDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,8 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class TimeEnumController {
 
     @PostMapping("time")
-    public TimeEnumDO save(@RequestBody TimeEnumDO timeEnumDO) {
-        return timeEnumDO;
+    public TimeEnumDTO save(@RequestBody TimeEnumDTO timeEnumDTO) {
+        log.info("接收到数据:{}", timeEnumDTO);
+        return timeEnumDTO;
     }
 
 }

@@ -3,8 +3,8 @@ package com.github.springbootjackson.enums;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.sun.tools.javac.util.StringUtils;
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 import java.util.Optional;
@@ -25,11 +25,9 @@ import java.util.stream.Stream;
 @SuppressWarnings("unused")
 public enum TimeUnitEnum {
 
-
     /**
      * 秒
      */
-
     SECOND("SECOND", TimeUnit.SECONDS),
 
     /**
@@ -48,15 +46,14 @@ public enum TimeUnitEnum {
      */
     DAYS("DAYS", TimeUnit.DAYS);
 
-    private static Map<String, TimeUnit> timeUnitMap = Stream.of(TimeUnitEnum.values())
-            .collect(Collectors.toMap(one -> one.unit, TimeUnitEnum::getTimeUnit));
+    private static final Map<String, TimeUnit> TIME_UNIT_MAP = Stream.of(TimeUnitEnum.values()).collect(Collectors.toMap(one -> one.unit, TimeUnitEnum::getTimeUnit));
 
     @Getter
     @JsonValue
-    private String unit;
+    private final String unit;
 
     @Getter
-    private TimeUnit timeUnit;
+    private final TimeUnit timeUnit;
 
     TimeUnitEnum(String unit, TimeUnit timeUnit) {
         this.unit = unit;
@@ -64,13 +61,12 @@ public enum TimeUnitEnum {
     }
 
     /**
-     *
      * @param value value
      * @return TimeUnit
      */
     @JsonCreator
     public static TimeUnit forValue(String value) {
-        return Optional.ofNullable(timeUnitMap.get(StringUtils.toUpperCase(value))).orElseThrow(() -> new IllegalArgumentException(value));
+        return Optional.ofNullable(TIME_UNIT_MAP.get(StringUtils.upperCase(value))).orElseThrow(() -> new IllegalArgumentException(value));
     }
 
 }

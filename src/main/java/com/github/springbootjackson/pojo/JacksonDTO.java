@@ -1,10 +1,10 @@
 package com.github.springbootjackson.pojo;
 
-import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -15,17 +15,16 @@ import java.util.Date;
  * JsonIgnoreProperties(value = {"pass"}, ignoreUnknown = true)
  * 修饰类，忽略指定的类型的字段
  * JsonIgnoreType()
- *
+ * <p>
  * 序列化时排除null或者空字符串
  * JsonInclude(JsonInclude.Include.NON_NULL)
- *
+ * <p>
  * 表示在序列化Person时，将值为null的字段排除掉。
  * JsonInclude(JsonInclude.Include.NON_EMPTY)
  * JsonRootName("JacksonDO")
- *
+ * <p>
  * 作用在类上，被用来指明当序列化时需要对属性做排序，它有2个属性
  * 一个是alphabetic：布尔类型，表示是否采用字母拼音顺序排序，默认是为false，即不排序
- *
  *
  * <p>
  * 创建时间为 21:45-2019-04-22
@@ -36,9 +35,10 @@ import java.util.Date;
  * @version 0.0.1
  * @since 0.0.1
  */
+@ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(alphabetic = true, value = {"date", "age"})
-public class JacksonDO {
+public class JacksonDTO {
 
     /**
      * 为这个字段添加别名,指定顺序,默认值
@@ -52,8 +52,4 @@ public class JacksonDO {
     @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date date;
 
-    @Override
-    public String toString() {
-        return JSON.toJSONString(this);
-    }
 }

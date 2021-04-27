@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.Set;
 
 /**
+ * 将 Set 中字符串 以 | 拼接
+ *
  * @author 石少东
  * @date 2020-10-23 15:31
  * @since 1.0

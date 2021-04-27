@@ -19,13 +19,12 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-public class DeserializeDO {
+public class SerializationDTO {
 
     private String username;
 
     @JsonSerialize(using = MobileSerializer.class)
     @JsonDeserialize(using = MobileDeserializer.class)
     private Set<String> mobiles;
-
 
 }

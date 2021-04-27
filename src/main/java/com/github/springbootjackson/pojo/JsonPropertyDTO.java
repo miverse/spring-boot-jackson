@@ -1,12 +1,13 @@
 package com.github.springbootjackson.pojo;
 
-import com.alibaba.fastjson.JSON;
+
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * <p>
@@ -20,7 +21,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class JsonPropertyDO {
+@ToString
+public class JsonPropertyDTO {
 
     /**
      * 可以设置访问
@@ -39,10 +41,5 @@ public class JsonPropertyDO {
     @JsonIgnore
     @JsonAlias({"pass1", "pass2"})
     private String pass;
-
-    @Override
-    public String toString() {
-        return JSON.toJSONString(this);
-    }
 
 }

@@ -1,7 +1,7 @@
 package com.github.springbootjackson.controller;
 
 
-import com.github.springbootjackson.pojo.AutoDetectDO;
+import com.github.springbootjackson.pojo.AutoDetectDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class AutoDetectController {
 
     @PostMapping("auto")
-    public AutoDetectDO getAutoDetectDO(@RequestBody AutoDetectDO autoDetectDO) {
-        return autoDetectDO;
+    public AutoDetectDTO getAutoDetectDO(@RequestBody AutoDetectDTO autoDetectDTO) {
+        return autoDetectDTO;
     }
 
 

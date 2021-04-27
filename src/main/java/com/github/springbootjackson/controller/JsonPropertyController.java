@@ -1,7 +1,7 @@
 package com.github.springbootjackson.controller;
 
 
-import com.github.springbootjackson.pojo.JsonPropertyDO;
+import com.github.springbootjackson.pojo.JsonPropertyDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,8 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class JsonPropertyController {
 
     @PostMapping("property")
-    public JsonPropertyDO getJsonProperty(@RequestBody JsonPropertyDO jsonPropertyDO) {
-        return jsonPropertyDO;
+    public JsonPropertyDTO getJsonProperty(@RequestBody JsonPropertyDTO jsonProperty) {
+        log.info("接收到数据:{}", jsonProperty);
+        return jsonProperty;
     }
 
 }

@@ -1,11 +1,11 @@
 package com.github.springbootjackson.pojo;
 
-import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.github.springbootjackson.view.UserDetailView;
 import com.github.springbootjackson.view.UserSimpleView;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * <p>
@@ -19,7 +19,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class JsonViewDO {
+@ToString
+public class JsonViewDTO {
 
     @JsonView(UserSimpleView.class)
     private String simple;
@@ -27,8 +28,4 @@ public class JsonViewDO {
     @JsonView(UserDetailView.class)
     private String detail;
 
-    @Override
-    public String toString() {
-        return JSON.toJSONString(this);
-    }
 }

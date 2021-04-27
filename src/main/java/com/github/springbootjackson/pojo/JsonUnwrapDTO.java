@@ -1,11 +1,12 @@
 package com.github.springbootjackson.pojo;
 
-import com.alibaba.fastjson.JSON;
+
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.github.springbootjackson.view.UserDetailView;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * <p>
@@ -19,7 +20,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class JsonUnwrapDO {
+@ToString
+public class JsonUnwrapDTO {
 
     @JsonView(UserDetailView.class)
     private String desc;
@@ -31,24 +33,15 @@ public class JsonUnwrapDO {
     @JsonUnwrapped(prefix = "pre_", suffix = "_suf", enabled = true)
     private InnerClassDO innerClassDO;
 
-    @Override
-    public String toString() {
-        return JSON.toJSONString(this);
-    }
-
     @Getter
     @Setter
+    @ToString
     public static class InnerClassDO {
 
         @JsonView(UserDetailView.class)
         private String field1;
 
         private String field2;
-
-        @Override
-        public String toString() {
-            return JSON.toJSONString(this);
-        }
     }
 
 }

@@ -1,19 +1,16 @@
 package com.github.springbootjackson.pojo;
 
-import com.alibaba.fastjson.JSON;
-import com.github.springbootjackson.enums.TimeUnitEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.concurrent.TimeUnit;
 
 
-
 /**
- *
  * {"desc":"desc","integer":5,"timeUnit":"DAYS"}
  *
  * <p>
@@ -28,19 +25,15 @@ import java.util.concurrent.TimeUnit;
 @Getter
 @Setter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class TimeEnumDO {
+public class TimeEnumDTO {
 
     private String desc;
 
     private Integer integer;
 
     private TimeUnit timeUnit;
-
-    @Override
-    public String toString() {
-        return JSON.toJSONString(this);
-    }
 
 }

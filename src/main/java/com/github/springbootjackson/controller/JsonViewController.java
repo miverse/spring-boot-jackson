@@ -1,7 +1,7 @@
 package com.github.springbootjackson.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.github.springbootjackson.pojo.JsonViewDO;
+import com.github.springbootjackson.pojo.JsonViewDTO;
 import com.github.springbootjackson.view.UserDetailView;
 import com.github.springbootjackson.view.UserSimpleView;
 import lombok.extern.slf4j.Slf4j;
@@ -25,21 +25,25 @@ public class JsonViewController {
 
     @GetMapping("simple")
     @JsonView(UserSimpleView.class)
-    public JsonViewDO getSimple() {
-        return getJsonViewDO();
+    public JsonViewDTO getSimple() {
+        JsonViewDTO jsonViewDTO = getJsonViewDO();
+        log.info("返回数据:{}", jsonViewDTO);
+        return jsonViewDTO;
     }
 
     @GetMapping("detail")
     @JsonView(UserDetailView.class)
-    public JsonViewDO getDetail() {
-        return getJsonViewDO();
+    public JsonViewDTO getDetail() {
+        JsonViewDTO jsonViewDTO = getJsonViewDO();
+        log.info("返回数据:{}", jsonViewDTO);
+        return jsonViewDTO;
     }
 
-    private JsonViewDO getJsonViewDO() {
-        JsonViewDO jsonViewDO = new JsonViewDO();
-        jsonViewDO.setSimple("Message:Simple");
-        jsonViewDO.setDetail("Message:Detail");
-        return jsonViewDO;
+    private JsonViewDTO getJsonViewDO() {
+        JsonViewDTO jsonViewDTO = new JsonViewDTO();
+        jsonViewDTO.setSimple("Message:Simple");
+        jsonViewDTO.setDetail("Message:Detail");
+        return jsonViewDTO;
     }
 
 }

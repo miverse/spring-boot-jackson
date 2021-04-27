@@ -1,7 +1,7 @@
 package com.github.springbootjackson.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.github.springbootjackson.pojo.JsonUnwrapDO;
+import com.github.springbootjackson.pojo.JsonUnwrapDTO;
 import com.github.springbootjackson.view.UserDetailView;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,26 +23,28 @@ import org.springframework.web.bind.annotation.RestController;
 public class JsonUnwrapController {
 
     @GetMapping("unwrap1")
-    public JsonUnwrapDO getJsonUnwrapResult1() {
-        return getJsonUnwrapDO();
+    public JsonUnwrapDTO getJsonUnwrapResult1() {
+        JsonUnwrapDTO unwrapDO = getJsonUnwrapDO();
+        log.info("返回数据:{}", unwrapDO);
+        return unwrapDO;
     }
-
 
     @GetMapping("unwrap2")
     @JsonView(UserDetailView.class)
-    public JsonUnwrapDO getJsonUnwrapResult2() {
-        return getJsonUnwrapDO();
+    public JsonUnwrapDTO getJsonUnwrapResult2() {
+        JsonUnwrapDTO unwrapDO = getJsonUnwrapDO();
+        log.info("返回数据:{}", unwrapDO);
+        return unwrapDO;
     }
 
-
-    private JsonUnwrapDO getJsonUnwrapDO() {
-        JsonUnwrapDO jsonUnwrapDO = new JsonUnwrapDO();
-        jsonUnwrapDO.setDesc("desc:JsonUnwrapDO");
-        JsonUnwrapDO.InnerClassDO innerClassDO = new JsonUnwrapDO.InnerClassDO();
+    private JsonUnwrapDTO getJsonUnwrapDO() {
+        JsonUnwrapDTO jsonUnwrapDTO = new JsonUnwrapDTO();
+        jsonUnwrapDTO.setDesc("desc:JsonUnwrapDO");
+        JsonUnwrapDTO.InnerClassDO innerClassDO = new JsonUnwrapDTO.InnerClassDO();
         innerClassDO.setField1("setField1");
         innerClassDO.setField2("setField2");
-        jsonUnwrapDO.setInnerClassDO(innerClassDO);
-        return jsonUnwrapDO;
+        jsonUnwrapDTO.setInnerClassDO(innerClassDO);
+        return jsonUnwrapDTO;
     }
 
 }

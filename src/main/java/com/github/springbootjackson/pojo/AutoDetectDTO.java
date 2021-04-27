@@ -1,7 +1,9 @@
 package com.github.springbootjackson.pojo;
 
-import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 
 /**
  * <p>
@@ -14,15 +16,18 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
  * @since 0.0.1
  */
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.PUBLIC_ONLY)
-public class AutoDetectDO {
+public class AutoDetectDTO {
+
+    private static final ObjectMapper MAPPER = new ObjectMapper();
 
     private String name;
 
     public String pass;
 
+    @SneakyThrows(JsonProcessingException.class)
     @Override
     public String toString() {
-        return JSON.toJSONString(this);
+        return MAPPER.writeValueAsString(this);
     }
 
 }
