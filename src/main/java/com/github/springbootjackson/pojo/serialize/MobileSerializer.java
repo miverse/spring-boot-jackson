@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -21,7 +22,7 @@ import java.util.Set;
 public class MobileSerializer extends JsonSerializer<Set<String>> {
 
     @Override
-    public void serialize(Set<String> value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
+    public void serialize(@NotNull Set<String> value, @NotNull JsonGenerator gen, SerializerProvider serializers) throws IOException {
         String res = StringUtils.join(Arrays.stream(value.toArray()).distinct().toArray(), "|");
         gen.writeObject(res);
     }
